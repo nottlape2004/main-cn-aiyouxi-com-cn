@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://nottlape2004.github.io/main-cn-aiyouxi-com-cn/sitemap.xml
