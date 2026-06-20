@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>澳门威尼斯人 · 产品介绍</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f2f4f6;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans', 'Helvetica Neue', sans-serif;
+      color: #1e2a3a;
+      line-height: 1.65;
+      padding: 2rem 1.2rem;
+    }
+
+    .page-wrapper {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* hero 区域 — 温和的引导 */
+    .hero {
+      background: #ffffff;
+      border-radius: 24px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+      padding: 2.8rem 2.4rem 2.4rem;
+      margin-bottom: 2rem;
+      border: 1px solid rgba(200, 210, 220, 0.5);
+      transition: box-shadow 0.2s;
+    }
+
+    .hero h1 {
+      font-size: 1.9rem;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      color: #1f2b3a;
+      margin-bottom: 0.4rem;
+    }
+
+    .hero .sub {
+      font-size: 1.05rem;
+      color: #556b7c;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.2rem 0.5rem;
+    }
+
+    .hero .sub a {
+      color: #2f5a7a;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1.5px solid rgba(47, 90, 122, 0.2);
+      transition: border-color 0.15s;
+    }
+
+    .hero .sub a:hover {
+      border-color: #2f5a7a;
+    }
+
+    .hero .summary {
+      margin-top: 1.4rem;
+      font-size: 1.05rem;
+      color: #2d3e50;
+      max-width: 80%;
+    }
+
+    @media (max-width: 580px) {
+      .hero {
+        padding: 2rem 1.4rem;
+      }
+      .hero h1 {
+        font-size: 1.6rem;
+      }
+      .hero .summary {
+        max-width: 100%;
+      }
+    }
+
+    /* 卡片网格 — 两列 / 单列自适应 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.6rem;
+      margin-bottom: 2rem;
+    }
+
+    @media (max-width: 640px) {
+      .card-grid {
+        grid-template-columns: 1fr;
+        gap: 1.4rem;
+      }
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 1.8rem 1.6rem 1.8rem;
+      border: 1px solid #e7ecf0;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.02);
+      transition: box-shadow 0.2s, border-color 0.2s;
+    }
+
+    .card:hover {
+      border-color: #d0dae3;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.02);
+    }
+
+    .card h3 {
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-bottom: 0.9rem;
+      color: #1f2b3a;
+      letter-spacing: -0.01em;
+      border-left: 4px solid #b7cadb;
+      padding-left: 0.8rem;
+    }
+
+    .card p, .card li {
+      font-size: 0.96rem;
+      color: #384b5c;
+    }
+
+    .card ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .card ul li {
+      position: relative;
+      padding-left: 1.4rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .card ul li::before {
+      content: "·";
+      position: absolute;
+      left: 0.2rem;
+      color: #7f95aa;
+      font-weight: 700;
+    }
+
+    .card .tag {
+      display: inline-block;
+      background: #edf2f7;
+      color: #2f4b62;
+      font-size: 0.8rem;
+      border-radius: 30px;
+      padding: 0.2rem 0.85rem;
+      margin-top: 0.6rem;
+      border: 1px solid #dce5ed;
+    }
+
+    /* 使用建议 + 可信说明 — 宽卡片 */
+    .wide-card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 1.8rem 2rem 2rem;
+      border: 1px solid #e7ecf0;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.02);
+      margin-bottom: 2rem;
+    }
+
+    .wide-card h3 {
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+      color: #1f2b3a;
+      border-left: 4px solid #b7cadb;
+      padding-left: 0.8rem;
+    }
+
+    .wide-card p {
+      font-size: 0.98rem;
+      color: #2a3c4e;
+      margin-bottom: 0.7rem;
+    }
+
+    .wide-card .note {
+      background: #f4f8fc;
+      border-radius: 14px;
+      padding: 1rem 1.2rem;
+      margin-top: 1.2rem;
+      border: 1px solid #dfe8f0;
+      color: #2a3c4e;
+      font-size: 0.94rem;
+    }
+
+    .wide-card .note strong {
+      font-weight: 500;
+      color: #1f2b3a;
+    }
+
+    /* FAQ 摘要 —— 简单清晰 */
+    .faq-mini {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 1.8rem 2rem 2rem;
+      border: 1px solid #e7ecf0;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.02);
+      margin-bottom: 2rem;
+    }
+
+    .faq-mini h3 {
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-bottom: 1.1rem;
+      color: #1f2b3a;
+      border-left: 4px solid #b7cadb;
+      padding-left: 0.8rem;
+    }
+
+    .faq-item {
+      margin-bottom: 1.2rem;
+    }
+
+    .faq-item .q {
+      font-weight: 500;
+      color: #1f2b3a;
+      margin-bottom: 0.2rem;
+    }
+
+    .faq-item .a {
+      color: #42586b;
+      font-size: 0.94rem;
+      padding-left: 0.3rem;
+    }
+
+    .faq-item .a a {
+      color: #2f5a7a;
+      text-decoration: none;
+      border-bottom: 1px dotted #b0c7db;
+    }
+
+    .faq-item .a a:hover {
+      border-bottom-color: #2f5a7a;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #e2e9f0;
+      margin: 1.2rem 0;
+    }
+
+    .footer-note {
+      text-align: center;
+      color: #6b7f90;
+      font-size: 0.85rem;
+      padding: 1.2rem 0 0.2rem;
+      border-top: 1px solid #e2e9f0;
+      margin-top: 0.5rem;
+    }
+
+    .footer-note a {
+      color: #3b627d;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+  <!-- hero / 摘要 -->
+  <div class="hero">
+    <h1>澳门威尼斯人 · 日常查询与对照</h1>
+    <div class="sub">
+      <span>产品说明式 · 温和阅读</span>
+      <span>·</span>
+      <span><a href="https://home-venetian.com">澳门威尼斯人</a></span>
+    </div>
+    <div class="summary">
+      一份围绕澳门威尼斯人主题的延伸资料页，适用于日常资讯查询、特征对照以及场景化阅读。内容从客观视角梳理亮点与使用建议，不做过度渲染，可配合自有体验参考。
+    </div>
+  </div>
+
+  <!-- 两列卡片：亮点 + 场景对照 -->
+  <div class="card-grid">
+    <div class="card">
+      <h3>特征亮点</h3>
+      <ul>
+        <li>综合体规划，融合住宿、餐饮、公共空间与活动场地</li>
+        <li>公共区域风格统一，适合取景或短途停留</li>
+        <li>多品牌入驻，涵盖日常消费与休闲选择</li>
+        <li>交通动线相对集中，适合初次到访者步行探索</li>
+      </ul>
+      <span class="tag">对照参考</span>
+    </div>
+    <div class="card">
+      <h3>使用场景</h3>
+      <ul>
+        <li>出发前了解区域分布与动线简况</li>
+        <li>阅读相关游记或评价时作为方位对照</li>
+        <li>与同类目的地做特征比照</li>
+        <li>碎片时间延伸浏览，积累背景信息</li>
+      </ul>
+      <span class="tag">日常参考</span>
+    </div>
+  </div>
+
+  <!-- 使用建议 + 可信克制的说明 -->
+  <div class="wide-card">
+    <h3>使用建议 · 对照与延伸</h3>
+    <p>
+      若你正在收集澳门威尼斯人的基础信息，可将本页作为快速对照条目。建议配合点开 <a href="https://home-venetian.com">澳门威尼斯人</a> 的官方页面，结合实时资讯一起阅读，以便获得更完整的印象。页面内所涉描述均为公开可查的通用特征，不构成服务承诺或最新运营安排。
+    </p>
+    <p>
+      对于初次接触的用户，可以先浏览亮点卡片再查阅 FAQ 摘要，帮助建立基本框架。如需更细致的信息（如具体楼层店铺、活动日程），仍以官方渠道或现场标识为准。
+    </p>
+    <div class="note">
+      <strong>可信说明</strong> · 本站内容基于公开资料整理，仅供个人参考。页面不包含诱导点击、虚假承诺或未经核实的表述。运营细节可能随时间调整，建议在出行或决策前通过正规渠道做进一步核实。链接指向 <a href="https://home-venetian.com">澳门威尼斯人</a> 主页，不做跳转拦截。
+    </div>
+  </div>
+
+  <!-- FAQ 摘要 -->
+  <div class="faq-mini">
+    <h3>常见疑惑 · 简短摘要</h3>
+    <div class="faq-item">
+      <div class="q">问：本页与官方页面是什么关系？</div>
+      <div class="a">答：本页属于独立的延伸介绍页，提供摘要式对照内容。如需官方最新资讯，推荐直接浏览 <a href="https://home-venetian.com">澳门威尼斯人</a> 网站。</div>
+    </div>
+    <div class="faq-item">
+      <div class="q">问：信息更新频率如何？</div>
+      <div class="a">答：本页基于相对稳定的通用特征编写，但不会实时追踪每日变动。建议重要信息以官方来源为准。</div>
+    </div>
+    <div class="faq-item">
+      <div class="q">问：可以转载或参考内容吗？</div>
+      <div class="a">答：本页内容仅供个人阅读参考，请勿作为商业用途或误导性宣传。引用时建议附上原出处。</div>
+    </div>
+    <hr>
+    <div style="font-size:0.9rem; color:#465f73;">
+      若你有更多问题，不妨先查阅公开资料再决定下一步。
+    </div>
+  </div>
+
+  <!-- 页脚 -->
+  <div class="footer-note">
+    <span>延伸阅读 · 温和对照 · 基于公开信息整理</span><br>
+    <span style="opacity:0.7;">产品说明式页面 · 指向 <a href="https://home-venetian.com">澳门威尼斯人</a></span>
+  </div>
+
+</div>
+</body>
+</html>
