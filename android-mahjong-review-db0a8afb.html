@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>麻将胡了 · 简明指南与访问提醒</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+      background-color: #fbf8f2;
+      color: #2e2b28;
+      line-height: 1.7;
+      padding: 2rem 1.25rem;
+    }
+
+    .page-wrap {
+      max-width: 840px;
+      margin: 0 auto;
+      background-color: #fffffffa;
+      border-radius: 32px;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06), 0 1px 4px rgba(0, 0, 0, 0.03);
+      padding: 2.5rem 2rem 3rem;
+    }
+
+    @media (max-width: 520px) {
+      body { padding: 1rem 0.75rem; }
+      .page-wrap { padding: 1.75rem 1.25rem 2.5rem; border-radius: 20px; }
+    }
+
+    /* titles */
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      color: #3c3a36;
+      border-left: 6px solid #d9b382;
+      padding-left: 1rem;
+      margin: 0 0 0.6rem 0;
+      line-height: 1.2;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #4b453e;
+      margin: 2.2rem 0 1rem 0;
+      padding-bottom: 0.3rem;
+      border-bottom: 2px solid #e5ddd0;
+    }
+
+    h3 {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #554f47;
+      margin: 1.4rem 0 0.6rem;
+    }
+
+    /* hero / tagline */
+    .hero-tag {
+      font-size: 1rem;
+      color: #7d766b;
+      background: #f0ece4;
+      display: inline-block;
+      padding: 0.2rem 1rem 0.3rem 1rem;
+      border-radius: 30px;
+      margin-bottom: 1.6rem;
+      letter-spacing: 0.02em;
+    }
+
+    .intro-text {
+      font-size: 1.05rem;
+      color: #3d3a35;
+      margin-bottom: 0.5rem;
+    }
+
+    /* directory-like grid */
+    .guide-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+      gap: 1rem;
+      margin: 1.8rem 0 1.2rem;
+    }
+
+    .guide-card {
+      background: #f6f2eb;
+      border-radius: 20px;
+      padding: 1rem 1rem 0.9rem;
+      transition: 0.15s ease;
+      border: 1px solid #e7dfd3;
+    }
+
+    .guide-card:hover {
+      background: #efe9df;
+      border-color: #cdbca8;
+    }
+
+    .guide-card .card-title {
+      font-weight: 500;
+      font-size: 1rem;
+      margin-bottom: 0.1rem;
+      color: #3f3b33;
+    }
+
+    .guide-card .card-desc {
+      font-size: 0.87rem;
+      color: #6b645b;
+      line-height: 1.45;
+    }
+
+    /* info box / callout */
+    .info-box {
+      background: #f1ede6;
+      border-left: 6px solid #c6a67c;
+      border-radius: 12px;
+      padding: 1.2rem 1.4rem;
+      margin: 1.8rem 0;
+      color: #3e3a33;
+    }
+
+    .info-box p {
+      margin: 0.2rem 0;
+    }
+
+    .info-box strong {
+      color: #4e3f2f;
+    }
+
+    .tip-box {
+      background: #f2f0ea;
+      border-radius: 16px;
+      padding: 1rem 1.35rem;
+      margin: 1.6rem 0;
+      border: 1px dashed #cec2b2;
+    }
+
+    .tip-box p {
+      font-size: 0.96rem;
+    }
+
+    .faq-mini {
+      margin: 1.2rem 0 0.6rem;
+    }
+
+    .faq-item {
+      margin: 0.6rem 0;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid #e5ddd0;
+    }
+
+    .faq-q {
+      font-weight: 500;
+      color: #4c4238;
+    }
+
+    .faq-a {
+      color: #5a5247;
+      font-size: 0.95rem;
+      margin: 0.1rem 0 0.4rem 0;
+    }
+
+    a {
+      color: #7b5f3f;
+      text-decoration: none;
+      border-bottom: 1px dotted #bcaa93;
+      transition: 0.1s;
+    }
+
+    a:hover {
+      color: #4f3b24;
+      border-bottom: 2px solid #9d7f5d;
+    }
+
+    .related-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem 1.6rem;
+      margin: 0.8rem 0 0.2rem;
+    }
+
+    .related-links span {
+      background: #f1ece4;
+      padding: 0.2rem 1rem;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      color: #5f5549;
+    }
+
+    hr {
+      border: none;
+      border-top: 2px solid #ebe3d7;
+      margin: 2rem 0 0.8rem;
+    }
+
+    .footer-note {
+      font-size: 0.85rem;
+      color: #95897b;
+      margin-top: 2rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+  <div class="hero-tag">📖 知识库 · 简明指南</div>
+  <h1>麻将胡了 · 从入门到提醒</h1>
+  <p class="intro-text">
+    不论你是初次接触还是想梳理细节，这里整理了一份围绕「<a href="https://android-mahjong.com">麻将胡了</a>」的轻量知识索引。
+    内容不花哨，只讲实在的规则轮廓、访问习惯和常见留意点。
+  </p>
+
+  <!-- 目录式卡片网格 -->
+  <h2>🧭 快速索引</h2>
+  <div class="guide-grid">
+    <div class="guide-card">
+      <div class="card-title">基本规则</div>
+      <div class="card-desc">牌型组合、胡牌条件、番数简表</div>
+    </div>
+    <div class="guide-card">
+      <div class="card-title">界面与操作</div>
+      <div class="card-desc">按钮布局、出牌、碰杠、听牌提示</div>
+    </div>
+    <div class="guide-card">
+      <div class="card-title">网络与设备</div>
+      <div class="card-desc">Wi-Fi / 移动数据适应性、安卓版本建议</div>
+    </div>
+    <div class="guide-card">
+      <div class="card-title">常见术语</div>
+      <div class="card-desc">自摸、点炮、门清、混一色等</div>
+    </div>
+    <div class="guide-card">
+      <div class="card-title">账户安全</div>
+      <div class="card-desc">密码强度、绑定、退出习惯</div>
+    </div>
+    <div class="guide-card">
+      <div class="card-title">问题排查</div>
+      <div class="card-desc">加载失败、闪退、延迟处理思路</div>
+    </div>
+  </div>
+
+  <!-- 说明区 -->
+  <h2>📌 说明区 · 站点与访问</h2>
+  <p>
+    网站 <a href="https://android-mahjong.com">麻将胡了</a> 主要面向安卓用户，提供麻将相关内容的浏览与交互。
+    页面结构偏向轻量工具，不包含复杂注册流程，建议使用系统自带浏览器或 Chrome 获得稳定体验。
+  </p>
+  <p style="margin-top: 0.5rem;">
+    如果你是第一次访问，可以先熟悉界面菜单的分布。部分功能需要网络稳定，建议在信号良好的环境下使用。
+  </p>
+
+  <!-- 提示区 -->
+  <div class="info-box">
+    <strong>🧺 访问提醒</strong>
+    <p>▸ 不要在公共设备上勾选“记住密码”选项（如果遇到登录模块）。</p>
+    <p>▸ 定期清理浏览器缓存可减少样式加载异常。</p>
+    <p>▸ 如页面显示异常，尝试切换为“桌面版网站”模式。</p>
+    <p>▸ 涉及个人信息的操作，留意地址栏是否为 <code>https://android-mahjong.com</code>。</p>
+  </div>
+
+  <!-- 场景化建议 -->
+  <h2>🎯 适用场景</h2>
+  <div class="tip-box">
+    <p><strong>休闲查阅</strong> —— 等人、通勤时快速浏览规则细节，比翻说明书更直接。</p>
+    <p><strong>规则对照</strong> —— 和朋友玩本地麻将遇到歧义？打开网站对照通用描述。</p>
+    <p><strong>新手上路</strong> —— 从零了解胡牌组合和番种，不用一上来就背牌谱。</p>
+    <p><strong>设备调试参考</strong> —— 如果页面加载卡顿，可参照索引中的“问题排查”思路。</p>
+  </div>
+
+  <!-- FAQ 摘要 -->
+  <h2>❓ FAQ 摘要</h2>
+  <div class="faq-mini">
+    <div class="faq-item">
+      <div class="faq-q">Q：页面在国外打不开？</div>
+      <div class="faq-a">A：先检查本地网络；部分境外运营商可能限制，可尝试更换 DNS 或使用常用浏览器。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Q：点击没反应或按钮错位？</div>
+      <div class="faq-a">A：更新浏览器至最新版本，或开启“桌面版网站”显示。安卓 6.0 以下设备可能部分功能不兼容。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Q：需要注册才能看内容吗？</div>
+      <div class="faq-a">A：基础规则与指南页面一般无需登录，部分个性化功能可能要求简单验证，以页面实际提示为准。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Q：怎么确认访问的是正版？</div>
+      <div class="faq-a">A：认准域名 android-mahjong.com，注意拼写。不要从第三方推送的链接直接输入敏感信息。</div>
+    </div>
+  </div>
+
+  <!-- 相关信息区 -->
+  <h2>🔗 相关信息</h2>
+  <div class="related-links">
+    <span>📘 牌型图解</span>
+    <span>⚙️ 常见错误码</span>
+    <span>🔄 版本更新记录</span>
+    <span>📱 屏幕适配建议</span>
+  </div>
+  <p style="font-size: 0.95rem; margin-top: 0.3rem;">
+    以上分类可在 <a href="https://android-mahjong.com">麻将胡了</a> 站内对应板块找到更详细的展开内容。
+    信息会跟随版本微调，以网站实际展示为准。
+  </p>
+
+  <hr>
+  <div class="footer-note">
+    页面为知识库入口样式 · 内容仅供个人参考 · 实际体验以官网为准
+  </div>
+</div>
+</body>
+</html>
